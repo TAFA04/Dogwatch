@@ -60,4 +60,5 @@ app.get('/users/:id', (request, response) => {
 app.post('/like/:id', (request, response) =>{
   const likeId = request.params.id
   console.log("you liked: " +likeId)
+  response.end()
 })
