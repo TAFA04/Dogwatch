@@ -6,9 +6,18 @@ import Button from './components/Button.js';
 import Image from './components/Image.js';
 
 class App extends Component {
-  printToPage = () => {
-    console.log("it is working!")
+
+  // handleClick = (e) => {
+  //   e.preventDefault();
+  //   alert("it is working!")
+  // }
+
+  likeClick = (event) => {
+    event.preventDefault();
+    window.alert('this is:' );
   }
+
+
   render() {
     return (
       <div className="App">
@@ -17,12 +26,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Title content="Hello dog lovers!" />
-        <Title content="Welcome to our app."/>
-        <Button content="LikeDog" onClick={this.printToPage()}/> <br />
+        <p>Welcome to our app</p>
+        <br />
         <Image content="http://www.animatedimages.org/data/media/202/animated-dog-image-0712.gif"/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <br />
+        <Button content="LikeDog" onClick={this.likeClick}/>
+
       </div>
     );
   }
