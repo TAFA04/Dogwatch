@@ -11,4 +11,4 @@ describe('<App />', () => {
     expect(app).toHaveClassName('App')
   })
 
-  
+})
