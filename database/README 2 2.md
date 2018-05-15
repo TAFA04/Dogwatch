@@ -9,7 +9,7 @@ create table users (
 	id serial not null,
 	username varchar(100) not null,
 	email varchar(200) not null,
-	password varchar(100) not null,
+	password varchar(100) not null
 
 );
 
