@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 
 class Button extends PureComponent {
   static propTypes = {
-    onClick: PropTypes.func.isRequired,
-    content: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired
   }
   render() {
     return (
