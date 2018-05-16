@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../db')
 
-const Breed = sequelize.define('breedlikes', {
+const Breed = sequelize.define('breed', {
 
   userid: {
       type: Sequelize.INTEGER,
@@ -16,7 +16,7 @@ const Breed = sequelize.define('breedlikes', {
   likes: {
     type: Sequelize.INTEGER,
   }
-}
+},
 
   {
     tableName: "breedlikes",
@@ -24,4 +24,4 @@ const Breed = sequelize.define('breedlikes', {
   }
 )
 
-module.exports = BreedLikes
+module.exports = Breed
