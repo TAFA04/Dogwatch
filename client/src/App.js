@@ -4,21 +4,38 @@ import './App.css';
 import Title from './components/Title.js';
 import Button from './components/Button.js';
 import Image from './components/Image.js';
+// import {connect} from 'react-redux'
+// import fetchImage from '..actions/image'
+const request = require('superagent');
+
+
+
 
 class App extends Component {
 
-  // handleClick = (e) => {
-  //   e.preventDefault();
-  //   alert("it is working!")
-  // }
-
   likeClick = (event) => {
     event.preventDefault();
-    window.alert('this is:' );
+    window.alert('Like' );
   }
 
+  // componentWillMount() {
+  //   this.props.fetchImage()
+  // }
+
+  getPicture = () => {
+    let dogPic = ""
+    request
+      .get('https://dog.ceo/api/breeds/image/random')
+      .query({message:"*"})
+      .end((err, res) => {
+        console.log(res.body.message)
+
+      });
+    return dogPic
+  }
 
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
@@ -31,10 +48,18 @@ class App extends Component {
         <Image content="http://www.animatedimages.org/data/media/202/animated-dog-image-0712.gif"/>
         <br />
         <Button content="LikeDog" onClick={this.likeClick}/>
+        <Button content="DislikeDog" onClick={this.getPicture}/>
 
       </div>
     );
   }
 }
 
-export default App;
+// const mapStateToProps = function (state) {
+//   return {
+//     image: state.image
+//   }
+// }
+
+// export default connect(mapStateToProps, { fetchImage })(App)
+export default App
