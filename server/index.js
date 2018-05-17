@@ -1,7 +1,13 @@
 const express = require('express')
+const sequelize = require('sequelize')
+const User = require('./users/model')
+const Breed = require('./breedlikes/model')
 const app = express()
 
-const Users = {
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+/*const Users = {
   1: {
     id: 1,
     name: "Henk",
@@ -41,25 +47,77 @@ const BreedLikes = {
     likes: 6
   }
 
-}
+}*/
 
 
 app.listen(4001, () => console.log('Express API listening on port 4001'))
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE')
+  next()
+})
 
 app.get('/do-something', (request, response) => {
   console.log(`I'll do something, I promise!`)
   response.end()
 });
 
-app.get('/users/:id', (request, response) => {
-  const userId = request.params.id
-  response.send(Users[userId])
-});
+app.get('/users', (req, res) => {
+  User.findAll()
+  .then(result => {
+    res.send({
+      users: result
+    })
+  })
+  .catch(err => {
+    // there was an error, return some HTTP error code
+    res.status(500).send({error: 'Something went wrong with Postgres'})
+  })
+})
 
-app.post('/like/:id', (request, response) =>{
-  const likeId = request.params.id
-  console.log("you liked: " +likeId)
-  response.end()
+app.get('/API/pref/:userid', (req, res) => {
+  const userid = req.params.userid;
+  const likemax = Breed.max('likes', {
+    where: {userid: userid}
+  })
+Breed.findOne({
+  attributes: ['breedname'],
 
+where: {likes: likemax} && {userid: userid}
+})
+  .then(result => {
+   res.send({result})
+  })
+  .catch(err => {
+    // there was an error, return some HTTP error code
+    res.status(500).send({error: 'Something went wrong with Postgres'})
+  })
+})
+
+app.post('/API/top', (req, res) => {
+  const banana = req.body.banana;
+  const currentuserid = req.body.currentuserid;
+  const notcurrentuser = {[sequelize.Op.notIn]: [currentuserid]}
+  /*const likemax = Breed.max('likes', {
+    where: {breedname: banana}
+  })
+  console.log(likemax)*/
+Breed.findAll({
+  //attributes: ['userid'],
+  /*where: {
+    userid:notcurrentuser,
+    breedname:banana,
+    likes:
+  }*/
+where: {userid: notcurrentuser} && {breedname: banana} 
+})
+  .then(result => {
+   res.send({result})
+  })
+  .catch(err => {
+    // there was an error, return some HTTP error code
+    res.status(500).send({error: 'Something went wrong with Postgres'})
+  })
 })

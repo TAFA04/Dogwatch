@@ -1,1 +1,4 @@
-"id","userid","breedid","likes"
+"id","userid","breedname","likes"
+1,1,"schnauzer",5
+2,3,"beagle",4
+3,2,"beagle",6
