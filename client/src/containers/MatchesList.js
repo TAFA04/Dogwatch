@@ -7,28 +7,32 @@ import {getpref, topmatches} from '../actions/pref'
 
 
 class MatchesList extends PureComponent {
-  static PropTypes = {
-    matches: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired
-    })).isRequired
-  }
+  static propTypes = {
+      pref: PropTypes.string.isRequired,
+      matches: PropTypes.arrayOf(PropTypes.string).isRequired
+    }
 
   getPreferences = () => {
     this.props.getpref()
   }
+  getMatches = () => {
+    const itdoesnothing = this.props.topmatches();
+    console.log(itdoesnothing);
+  }
 
 
 render(){
-  const {matches } = this.props
+
+  const { pref, matches } = this.props
+
   if(!this.props.pref)
-    this.getPreferences()
+    this.getPreferences();
   return (
     <div>
-
       <p>{this.props.pref}</p>
-
-      </div>
+      <p>{this.props.matches.userid}</p>
+      <button onClick={this.getMatches}> get matches</button>
+    </div>
 
 
 
@@ -37,8 +41,9 @@ render(){
 }
 const mapStateToProps = function (state) {
   return {
-    pref: state.pref
+    pref: state.pref,
+    matches: state.matches
   }
 }
 
-export default connect (mapStateToProps, {getpref}) (MatchesList)
+export default connect (mapStateToProps, {getpref, topmatches}) (MatchesList)

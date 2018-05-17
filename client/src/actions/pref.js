@@ -19,14 +19,12 @@ export const getpref = () => (dispatch) => {
 
 
 
-/*export const topmatches = (banana, currentuserid) => (dispatch) =>
-	request
-		.post(`${baseUrl}/top`)
-		.send({ "schnauzer", 1 })
-		.then(response => {
-			dispatch({
-				type: TOP_MATCHES,
-				payload: response.body
-			})
-		})
-*/
+export const topmatches = () => (dispatch) => {
+
+  request
+    .get(`${baseUrl}/top`)
+    .then(response => dispatch({
+      type: TOP_MATCHES,
+      payload: response.body
+    }))
+}
