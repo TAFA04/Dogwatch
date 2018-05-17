@@ -4,6 +4,7 @@ const baseUrl = 'http://localhost:4001/API'
 
 export const PREF_OF_USER = 'PREF_OF_USER'
 export const TOP_MATCHES = 'TOP_MATCHES'
+export const USER_MATCH = 'USER_MATCH'
 
 
 export const getpref = () => (dispatch) => {
@@ -27,4 +28,15 @@ export const topmatches = () => (dispatch) => {
       type: TOP_MATCHES,
       payload: response.body
     }))
+}
+
+export const usermatch = (userid) => (dispatch) => {
+
+  request
+    .get(`${baseUrl}/users/${userid}`)
+    .then(response => dispatch({
+      type: USER_MATCH,
+      payload: response.body.users.email
+    }))
+    .catch(err => alert(err))
 }

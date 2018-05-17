@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {getpref, topmatches} from '../actions/pref'
+import {getpref, topmatches, usermatch} from '../actions/pref'
 
 
 
@@ -19,20 +19,24 @@ class MatchesList extends PureComponent {
     const itdoesnothing = this.props.topmatches();
     console.log(itdoesnothing);
   }
-
+  getUserMAtch = () => {
+    this.props.usermatch(this.props.matches.userid)
+  }
 
 render(){
 
-    const { pref, matches } = this.props
+    const { pref, matches, user } = this.props
 
     if(!this.props.pref)
       this.getPreferences();
     if(!this.props.matches)
-      this.getMatches()
+      this.getMatches();
+
     return (
       <div>
-        <p>{this.props.pref}</p>
-        <p>{this.props.matches.userid}</p>
+        <p>Your prefered breed is: {this.props.pref} !!!</p>
+        <p>{this.props.user}</p>
+        <button onClick={this.getUserMAtch}>click for Tim</button>
       </div>
     )
   }
@@ -41,8 +45,9 @@ render(){
 const mapStateToProps = function (state) {
   return {
     pref: state.pref,
-    matches: state.matches
+    matches: state.matches,
+    user: state.user
   }
 }
 
-export default connect (mapStateToProps, {getpref, topmatches}) (MatchesList)
+export default connect (mapStateToProps, {getpref, topmatches, usermatch}) (MatchesList)
