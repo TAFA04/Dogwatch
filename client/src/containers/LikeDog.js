@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
 import Title from '../components/Title';
 import {getPic} from '../actions/image'
+import {getpref} from '../actions/pref'
 import Button from '../components/Button';
 import Image from '../components/Image';
 import {connect} from 'react-redux'
@@ -31,14 +32,20 @@ class LikeDog extends PureComponent {
     this.props.getPic()
   }
 
+  getPreferences = () => {
+    this.props.getpref()
+  }
+
 
   render() {
     if(!this.props.image)
       this.getImage()
+    if(!this.props.pref)
+      this.getPreferences()
     return (
       <div>
         <Title content="Hello dog lovers!" />
-        <p>Welcome to our app</p>
+        <p>{this.props.pref}</p>
         <br />
         <Image content= {this.props.image} />
         <br />
@@ -55,8 +62,9 @@ class LikeDog extends PureComponent {
 
 const mapStateToProps = function (state) {
   return {
-    image: state.image
+    image: state.image,
+    pref: state.pref
   }
 }
 
-export default connect (mapStateToProps, {getPic}) (LikeDog)
+export default connect (mapStateToProps, {getPic, getpref}) (LikeDog)
