@@ -2,8 +2,9 @@ const express = require('express')
 const sequelize = require('sequelize')
 const User = require('./users/model')
 const Breed = require('./breedlikes/model')
+var cors = require('cors')
 const app = express()
-
+app.use(cors())
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -120,4 +121,30 @@ where: {userid: notcurrentuser} && {breedname: banana}
     // there was an error, return some HTTP error code
     res.status(500).send({error: 'Something went wrong with Postgres'})
   })
+})
+
+app.post('/API/like', (req, res) =>{
+  Breed.count({where: {userid:req.body.userid, breedname: req.body.breed}}).then((count) => {
+    if(count !== 0){
+      console.log('increment!');
+        Breed.increment('likes',{
+          where: {
+            userid: req.body.userid,
+            breedname: req.body.breed 
+          }
+        })
+    } else {
+      console.log('create!');
+      Breed.create({
+        userid: req.body.userid,
+        breedname: req.body.breed,
+        likes: 1
+      })
+    }
+  })
+
+  .then(result => {
+    return res
+})
+res.end()
 })
