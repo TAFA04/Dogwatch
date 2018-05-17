@@ -1,11 +1,3 @@
-// import {FETCHED_IMAGE} from '../actions/image'
-//
-// export default function (state = "", action) {
-//   switch (action.type) {
-//   case FETCHED_IMAGE:
-//     return action.payload
-//
-//   default:
-//     return state
-//   }
-// }
+export default (state = 'http://www.animatedimages.org/data/media/202/animated-dog-image-0712.gif', { type, payload } = {}) => {
+  return state
+}

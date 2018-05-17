@@ -4,8 +4,7 @@ import './App.css';
 import Title from './components/Title.js';
 import Button from './components/Button.js';
 import Image from './components/Image.js';
-// import {connect} from 'react-redux'
-// import fetchImage from '..actions/image'
+import {connect} from 'react-redux'
 const request = require('superagent');
 
 
@@ -45,7 +44,7 @@ class App extends Component {
         <Title content="Hello dog lovers!" />
         <p>Welcome to our app</p>
         <br />
-        <Image content="http://www.animatedimages.org/data/media/202/animated-dog-image-0712.gif"/>
+        <Image content= {this.props.image} />
         <br />
         <Button content="LikeDog" onClick={this.likeClick}/>
         <Button content="DislikeDog" onClick={this.getPicture}/>
@@ -55,11 +54,10 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = function (state) {
-//   return {
-//     image: state.image
-//   }
-// }
+const mapStateToProps = function (state) {
+  return {
+    image: state.image
+  }
+}
 
-// export default connect(mapStateToProps, { fetchImage })(App)
-export default App
+export default connect(mapStateToProps)(App)
