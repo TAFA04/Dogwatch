@@ -16,7 +16,9 @@ class LikeDog extends PureComponent {
 
   likeClick = () => {
     //e.preventDefault();
-    window.alert('Like' );
+    const urlParts = this.props.image.split('/')
+    const breedName = urlParts[urlParts.length-2]
+    window.alert( breedName )
   }
 
   // componentWillMount() {
