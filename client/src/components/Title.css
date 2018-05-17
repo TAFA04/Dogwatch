@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+.Title {
+  font-family: 'Permanent Marker', cursive;
+  -webkit-text-stroke: 1px white;
+  color: red;
+  font-size: 5em;
+}

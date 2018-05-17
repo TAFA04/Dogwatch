@@ -1,0 +1,17 @@
+.Btn__paw{
+    border: none;
+    color: Green;
+    font-size: 5em;
+    cursor: pointer;
+    margin: 20px;
+
+}
+
+.Btn__poo{
+    border: none;
+    color: red;
+    font-size: 5em;
+    cursor: pointer;
+    margin: 20px;
+
+}
