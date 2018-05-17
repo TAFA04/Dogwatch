@@ -8,13 +8,7 @@ import Image from '../components/Image';
 import {connect} from 'react-redux'
 import './LikeDog.css'
 
-
-
-
-class LikeDog extends PureComponent {
-  static propTypes = {
-    updateDog: PropTypes.func.isRequired
-  }
+const request = require('superagent')
 
 class LikeDog extends PureComponent {
   static propTypes = {
