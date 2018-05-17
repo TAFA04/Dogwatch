@@ -8,9 +8,9 @@ import {getpref, topmatches} from '../actions/pref'
 
 class MatchesList extends PureComponent {
   static propTypes = {
-      pref: PropTypes.string.isRequired,
-      matches: PropTypes.arrayOf(PropTypes.string).isRequired
-    }
+    pref: PropTypes.string.isRequired,
+    matches: PropTypes.arrayOf(PropTypes.string).isRequired
+  }
 
   getPreferences = () => {
     this.props.getpref()
@@ -23,20 +23,19 @@ class MatchesList extends PureComponent {
 
 render(){
 
-  const { pref, matches } = this.props
+    const { pref, matches } = this.props
 
-  if(!this.props.pref)
-    this.getPreferences();
-  return (
-    <div>
-      <p>{this.props.pref}</p>
-      <p>{this.props.matches.userid}</p>
-      <button onClick={this.getMatches}> get matches</button>
-    </div>
-
-
-
-)}
+    if(!this.props.pref)
+      this.getPreferences();
+    if(!this.props.matches)
+      this.getMatches()
+    return (
+      <div>
+        <p>{this.props.pref}</p>
+        <p>{this.props.matches.userid}</p>
+      </div>
+    )
+  }
 
 }
 const mapStateToProps = function (state) {

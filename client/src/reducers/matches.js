@@ -1,7 +1,7 @@
 import {TOP_MATCHES} from '../actions/pref'
 
 
-export default (state = [], { type, payload }) => {
+export default (state = '', { type, payload }) => {
   switch(type) {
   case TOP_MATCHES:
     console.log(payload[1]);
