@@ -2,18 +2,20 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
 import Title from '../components/Title';
+import {getPic} from '../actions/image'
 import Button from '../components/Button';
 import Image from '../components/Image';
 import {connect} from 'react-redux'
-const request = require('superagent');
+
+
 
 class LikeDog extends PureComponent {
   static propTypes = {
     updateDog: PropTypes.func.isRequired
   }
 
-  likeClick = (e) => {
-    e.preventDefault();
+  likeClick = () => {
+    //e.preventDefault();
     window.alert('Like' );
   }
 
@@ -22,22 +24,15 @@ class LikeDog extends PureComponent {
   // }
 
 
-  // getImage = (e) => {
-  //   e.preventDefault();
-  //   this.props.getPic
-  // }
-
-  getPicture = (result) => {
-    request
-      .get('https://dog.ceo/api/breeds/image/random')
-      .query({message:"*"})
-      .end((err, result) => {
-        console.log(result.body.message)
-      });
+  getImage = () => {
+    // e.preventDefault();
+    this.props.getPic()
   }
 
 
   render() {
+    if(!this.props.image)
+      this.getImage()
     return (
       <div>
         <Title content="Hello dog lovers!" />
@@ -50,7 +45,7 @@ class LikeDog extends PureComponent {
           onClick={this.likeClick}/>
         <Button
           content="DislikeDog"
-          onClick={this.getPicture}/>
+          onClick={this.getImage}/>
       </div>
     )
   }
@@ -62,4 +57,4 @@ const mapStateToProps = function (state) {
   }
 }
 
-export default connect (mapStateToProps) (LikeDog)
+export default connect (mapStateToProps, {getPic}) (LikeDog)

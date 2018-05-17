@@ -1,9 +1,10 @@
 import {GET_IMAGE} from '../actions/types'
 
-export default (state = '', { type, payload } = {}) => {
+export default (state = '', { type, payload }) => {
   switch(type) {
   case GET_IMAGE:
-    return state = payload.image
+    console.log(payload);
+    return payload
   default:
     return state
   }

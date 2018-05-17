@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
 
 
 class Image extends PureComponent {
@@ -14,4 +15,5 @@ class Image extends PureComponent {
   }
 }
 
+//export default connect(null, { newGame })(Image)
 export default Image
