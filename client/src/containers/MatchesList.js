@@ -2,10 +2,8 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getpref, topmatches} from '../actions/pref'
-import {Link} from 'react-router-dom'
 
 
-const breed = this.props.getpref
 
 
 class MatchesList extends PureComponent {
@@ -16,16 +14,31 @@ class MatchesList extends PureComponent {
     })).isRequired
   }
 
-  componentWillMount() {
-    this.props.topmatches();
+  getPreferences = () => {
     this.props.getpref()
   }
 
+
 render(){
-  const {matches, breed } = this.props
+  const {matches } = this.props
+  if(!this.props.pref)
+    this.getPreferences()
+  return (
+    <div>
 
+      <p>{this.props.pref}</p>
+
+      </div>
+
+
+
+)}
 
 }
-
-
+const mapStateToProps = function (state) {
+  return {
+    pref: state.pref
+  }
 }
+
+export default connect (mapStateToProps, {getpref}) (MatchesList)

@@ -32,20 +32,16 @@ class LikeDog extends PureComponent {
     this.props.getPic()
   }
 
-  getPreferences = () => {
-    this.props.getpref()
-  }
 
 
   render() {
     if(!this.props.image)
       this.getImage()
-    if(!this.props.pref)
-      this.getPreferences()
+    
     return (
       <div>
         <Title content="Hello dog lovers!" />
-        <p>{this.props.pref}</p>
+        <p>blabla</p>
         <br />
         <Image content= {this.props.image} />
         <br />
