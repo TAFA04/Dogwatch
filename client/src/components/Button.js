@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import './Button.css'
 
 class Button extends PureComponent {
   static propTypes = {
@@ -7,7 +9,7 @@ class Button extends PureComponent {
   }
   render() {
     return (
-      <button onClick={ this.props.onClick }> { this.props.content }</button>
+      <button className={this.props.className} onClick={ this.props.onClick }>  <FontAwesomeIcon icon={this.props.icon} /> </button>
     )
   }
 }
