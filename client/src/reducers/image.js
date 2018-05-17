@@ -1,3 +1,10 @@
-export default (state = 'http://www.animatedimages.org/data/media/202/animated-dog-image-0712.gif', { type, payload } = {}) => {
-  return state
+import {GET_IMAGE} from '../actions/types'
+
+export default (state = '', { type, payload } = {}) => {
+  switch(type) {
+  case GET_IMAGE:
+    return state = payload.image
+  default:
+    return state
+  }
 }
