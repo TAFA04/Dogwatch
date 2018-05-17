@@ -16,11 +16,23 @@ class LikeDog extends PureComponent {
     updateDog: PropTypes.func.isRequired
   }
 
+class LikeDog extends PureComponent {
+  static propTypes = {
+    updateDog: PropTypes.func.isRequired
+  }
+
   likeClick = () => {
     //e.preventDefault();
     const urlParts = this.props.image.split('/')
     const breedName = urlParts[urlParts.length-2]
-    window.alert( breedName )
+      request
+        .post('http://localhost:4001/API/like')
+        .send({breed: breedName, userid:1})
+        .end((err, result) => {
+          console.log('sent API req');
+          
+        });
+    this.getImage()
   }
 
   // componentWillMount() {
