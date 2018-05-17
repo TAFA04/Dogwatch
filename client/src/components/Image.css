@@ -1,0 +1,7 @@
+.Image {
+  width: 400px;
+  height: 300px;
+   box-shadow: 8px 8px 10px #aaa;
+   object-fit: cover;
+   overflow: hidden;
+}

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import './Image.css'
 
 
 
@@ -9,7 +10,7 @@ class Image extends PureComponent {
   }
   render() {
     return (
-      <img src={this.props.content} alt="supercutedogpicture"/>
+      <img className="Image" src={this.props.content} alt="supercutedogpicture"/>
 
     )
   }
