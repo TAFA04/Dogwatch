@@ -47,7 +47,8 @@ class LikeDog extends PureComponent {
   render() {
     if(!this.props.image)
       this.getImage()
-
+    if(this.props.counter <= 0)
+      window.location.replace("http://localhost:3000/Preferences");
     return (
       <div className="App">
         <header className="App-header">
