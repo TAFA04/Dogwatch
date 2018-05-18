@@ -1,4 +1,8 @@
 p {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Oswald', sans-serif;
   font-size: 1.5em;
+  font-weight: 100;
+
 }
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500|Source+Sans+Pro:200');

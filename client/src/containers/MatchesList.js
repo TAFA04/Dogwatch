@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getpref, topmatches, usermatch} from '../actions/pref'
+import Button from '../components/Button';
 
 
 
@@ -34,9 +35,9 @@ render(){
 
     return (
       <div>
-        <p>Your prefered breed is: {this.props.pref} !!!</p>
+        <p>Your prefered breed is: {this.props.pref} </p>
         <p>{this.props.user}</p>
-        <button onClick={this.getUserMAtch}>click for Tim</button>
+        <Button className = "Btn__comment" icon="envelope" onClick={this.getUserMAtch} />
       </div>
     )
   }

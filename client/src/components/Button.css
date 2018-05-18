@@ -4,7 +4,16 @@
     font-size: 5em;
     cursor: pointer;
     margin: 20px;
+}
 
+.Btn__paw:hover {
+  color: DarkGreen;
+  transform: scale(1.25);
+  /* transition: transform .2s; */
+}
+
+.Btn__paw:focus {
+  outline:0;
 }
 
 .Btn__poo{
@@ -13,5 +22,33 @@
     font-size: 5em;
     cursor: pointer;
     margin: 20px;
+    text-shadow: 1px 1px 1px black;
+}
 
+.Btn__poo:hover {
+  color: DarkRed;
+  transform: scale(1.25);
+  /* transition: transform .2s; */
+}
+
+.Btn__poo:focus {
+  outline:0;
+}
+
+.Btn__comment{
+    border: none;
+    color: Blue;
+    font-size: 5em;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.Btn__comment:hover {
+  color: DarkBlue;
+  transform: scale(1.25);
+  /* transition: transform .2s; */
+}
+
+.Btn__comment:focus {
+  outline:0;
 }

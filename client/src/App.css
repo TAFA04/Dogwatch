@@ -1,18 +1,5 @@
-.Title {
-  font-family: 'Permanent Marker', cursive;
-  -webkit-text-stroke: 1px white;
-  color: red;
-  font-size: 5em;
-}
-
-
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {
@@ -22,14 +9,5 @@
   color: white;
 }
 
-.App-intro {
-  font-family: 'Permanent Marker', cursive;
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
