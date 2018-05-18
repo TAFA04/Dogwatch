@@ -1,4 +1,21 @@
 p {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.5em;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+  font-weight: 100;
+
 }
+
+.Avatar {
+vertical-align: middle;
+   width: 75px;
+   height: 75px;
+   border-radius: 50%;
+
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
+   border-color: 1px green;
+
+}
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500|Source+Sans+Pro:200');

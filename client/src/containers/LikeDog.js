@@ -19,13 +19,13 @@ class LikeDog extends PureComponent {
     //e.preventDefault();
     const urlParts = this.props.image.split('/')
     const breedName = urlParts[urlParts.length-2]
-      request
-        .post('http://localhost:4001/API/like')
-        .send({breed: breedName, userid:1})
-        .end((err, result) => {
-          console.log('sent API req');
-          
-        });
+    request
+      .post('http://localhost:4001/API/like')
+      .send({breed: breedName, userid:1})
+      .end((err, result) => {
+        console.log('sent API req');
+
+      });
     this.getImage()
   }
 
@@ -44,11 +44,11 @@ class LikeDog extends PureComponent {
   render() {
     if(!this.props.image)
       this.getImage()
-    
+
     return (
       <div>
 
-        <p>Welcome to our app</p>
+        <p>Welcome to our app Henk <img className="Avatar" src="avatar-henk.png" alt = "Avatar"></img> </p>
         <br />
         <Image content= {this.props.image} />
         <br />
@@ -60,7 +60,6 @@ class LikeDog extends PureComponent {
           className="Btn__poo"
           icon="poo"
           onClick={this.getImage}/>
-
       </div>
     )
   }
