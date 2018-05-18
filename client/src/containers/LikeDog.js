@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
 import {getPic} from '../actions/image'
+import {decrement} from '../actions/counter'
 import Button from '../components/Button';
 import Image from '../components/Image';
 import {connect} from 'react-redux'
@@ -19,13 +20,13 @@ class LikeDog extends PureComponent {
     //e.preventDefault();
     const urlParts = this.props.image.split('/')
     const breedName = urlParts[urlParts.length-2]
-    request
-      .post('http://localhost:4001/API/like')
-      .send({breed: breedName, userid:1})
-      .end((err, result) => {
-        console.log('sent API req');
-      });
-    this.getImage()
+      request
+        .post('http://localhost:4001/API/like')
+        .send({breed: breedName, userid:1})
+        .end((err, result) => {
+          console.log('sent API req');
+        });
+    this.reduceHandler()
   }
 
   // componentWillMount() {
@@ -38,7 +39,10 @@ class LikeDog extends PureComponent {
     this.props.getPic()
   }
 
-
+  reduceHandler = () => {
+    this.props.decrement()
+    this.getImage()
+  }
 
   render() {
     if(!this.props.image)
@@ -60,7 +64,7 @@ class LikeDog extends PureComponent {
         <Button
           className="Btn__poo"
           icon="poo"
-          onClick={this.getImage}/>
+          onClick={this.reduceHandler}/>
       </div>
     )
   }
@@ -69,6 +73,7 @@ class LikeDog extends PureComponent {
 const mapStateToProps = function (state) {
   return {
     image: state.image,
+    counter: state.counter
   }
 }
 
