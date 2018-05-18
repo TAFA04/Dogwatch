@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
-.Title {
+h1.Title {
   font-family: 'Permanent Marker', cursive;
   -webkit-text-stroke: 1px white;
   color: red;
   font-size: 5em;
-  margin: 0px;
+  text-align: center;
+  margin: 0;
+  padding: 15px
 }

@@ -1,9 +1,19 @@
+.Title {
+  font-family: 'Permanent Marker', cursive;
+  -webkit-text-stroke: 1px white;
+  color: red;
+  font-size: 5em;
+  align-content: center;
+}
 .App {
   text-align: center;
+  margin: 0;
 }
 
 .App-header {
   background-color: red;
+  text-align: center;
+  margin: 0;
   height: 100px;
   padding: 20px;
   color: white;

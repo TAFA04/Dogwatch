@@ -2,10 +2,8 @@ import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getpref, topmatches, usermatch} from '../actions/pref'
+import {Redirect} from 'react-router-dom'
 import Button from '../components/Button';
-
-
-
 
 class MatchesList extends PureComponent {
   static propTypes = {
@@ -17,10 +15,9 @@ class MatchesList extends PureComponent {
     this.props.getpref()
   }
   getMatches = () => {
-    const itdoesnothing = this.props.topmatches();
-    console.log(itdoesnothing);
+   this.props.topmatches();
   }
-  getUserMAtch = () => {
+  getUserMatch = () => {
     this.props.usermatch(this.props.matches.userid)
   }
 
@@ -31,12 +28,16 @@ render(){
     if(!this.props.pref)
       this.getPreferences();
     if(!this.props.matches)
-      this.getMatches();
+      this.getMatches()
+
 
     return (
-      <div>
-        <p>Your prefered breed is: {this.props.pref} </p>
-        <p>{this.props.user}</p>
+      <div className="App">
+        <header className="App-header">
+          <h1 className="Title"> "DOGWATCH" </h1>
+        </header>
+        <p>Your prefered breed is {this.props.pref} !!!</p>
+        <p>Your match is {this.props.user} !!!</p>
         <Button className = "Btn__envelope" icon="envelope" onClick={this.getUserMAtch} />
       </div>
     )
