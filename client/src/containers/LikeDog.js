@@ -77,4 +77,4 @@ const mapStateToProps = function (state) {
   }
 }
 
-export default connect (mapStateToProps, {getPic, reduceHandler}) (LikeDog)
+export default connect (mapStateToProps, {getPic, decrement}) (LikeDog)
