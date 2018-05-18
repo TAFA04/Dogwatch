@@ -6,21 +6,23 @@ import Title from './components/Title'
 import faPaw from '@fortawesome/fontawesome-free-solid/faPaw'
 import faPoo from '@fortawesome/fontawesome-free-solid/faPoo'
 import fontawesome from '@fortawesome/fontawesome'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 fontawesome.library.add(faPaw, faPoo)
 
 class App extends Component {
 
   render() {
-
     return (
-      <div className="App">
-        <header className="App-header">
-          <Title className="Title" content="DOGWATCH" />
-        </header>
-        <LikeDog />
-        <MatchesList />
-      </div>
+      <Router>
+              <div className="App">
+                <Route exact path="/LikeDog" component={LikeDog} />
+                <Route exact path="/Preferences" component={MatchesList} />
+                <Route exact path="/" render={ () => <Redirect to="/LikeDog" /> } />
+              </div>
+            </Router>
+
+
     );
   }
 }

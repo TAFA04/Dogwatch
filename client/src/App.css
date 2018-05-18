@@ -3,11 +3,13 @@
   -webkit-text-stroke: 1px white;
   color: red;
   font-size: 5em;
+  align-content: center;
 }
 
 
 .App {
   text-align: center;
+  margin: 0;
 }
 
 .App-logo {
@@ -17,9 +19,11 @@
 
 .App-header {
   background-color: red;
+  text-align: center;
   height: 150px;
-  padding: 20px;
-  color: white;
+  margin: 0;
+
+
 }
 
 .App-intro {

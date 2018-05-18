@@ -36,7 +36,7 @@ export const usermatch = (userid) => (dispatch) => {
     .get(`${baseUrl}/users/${userid}`)
     .then(response => dispatch({
       type: USER_MATCH,
-      payload: response.body.users.email
+      payload: response.body.users.username
     }))
     .catch(err => alert(err))
 }
