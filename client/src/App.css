@@ -5,35 +5,19 @@
   font-size: 5em;
   align-content: center;
 }
-
-
 .App {
   text-align: center;
   margin: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: red;
   text-align: center;
-  height: 150px;
   margin: 0;
-
-
+  height: 100px;
+  padding: 20px;
+  color: white;
 }
 
-.App-intro {
-  font-family: 'Permanent Marker', cursive;
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');

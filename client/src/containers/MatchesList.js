@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getpref, topmatches, usermatch} from '../actions/pref'
 import {Redirect} from 'react-router-dom'
-
+import Button from '../components/Button';
 
 class MatchesList extends PureComponent {
   static propTypes = {
@@ -38,7 +38,7 @@ render(){
         </header>
         <p>Your prefered breed is {this.props.pref} !!!</p>
         <p>Your match is {this.props.user} !!!</p>
-        <button onClick={this.getUserMatch}>click for Tim</button>
+        <Button className = "Btn__envelope" icon="envelope" onClick={this.getUserMAtch} />
       </div>
     )
   }
