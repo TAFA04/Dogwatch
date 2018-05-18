@@ -9,7 +9,7 @@
 .Btn__paw:hover {
   color: DarkGreen;
   transform: scale(1.25);
-  /* transition: transform .2s; */
+  transition: transform .3s;
 }
 
 .Btn__paw:focus {
@@ -28,14 +28,14 @@
 .Btn__poo:hover {
   color: DarkRed;
   transform: scale(1.25);
-  /* transition: transform .2s; */
+  transition: transform .3s;
 }
 
 .Btn__poo:focus {
   outline:0;
 }
 
-.Btn__comment{
+.Btn__envelope{
     border: none;
     color: Blue;
     font-size: 5em;
@@ -43,12 +43,12 @@
     margin: 20px;
 }
 
-.Btn__comment:hover {
+.Btn__envelope:hover {
   color: DarkBlue;
   transform: scale(1.25);
-  /* transition: transform .2s; */
+  transition: transform .3s;
 }
 
-.Btn__comment:focus {
+.Btn__envelope:focus {
   outline:0;
 }

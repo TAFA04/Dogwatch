@@ -37,7 +37,7 @@ render(){
       <div>
         <p>Your prefered breed is: {this.props.pref} </p>
         <p>{this.props.user}</p>
-        <Button className = "Btn__comment" icon="envelope" onClick={this.getUserMAtch} />
+        <Button className = "Btn__envelope" icon="envelope" onClick={this.getUserMAtch} />
       </div>
     )
   }
