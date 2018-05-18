@@ -48,7 +48,7 @@ class LikeDog extends PureComponent {
     return (
       <div>
 
-        <p>Welcome to our app</p>
+        <p>Welcome to our app Henk <img className="Avatar" src="avatar-henk.png" alt = "Avatar"></img> </p>
         <br />
         <Image content= {this.props.image} />
         <br />
